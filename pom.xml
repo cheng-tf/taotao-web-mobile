@@ -11,6 +11,7 @@
     <description>taotao web mobile system</description>
 
     <modules>
+        <module>taotao-web-mobile-common</module>
         <module>taotao-web-mobile-domain</module>
         <module>taotao-web-mobile-controller</module>
     </modules>

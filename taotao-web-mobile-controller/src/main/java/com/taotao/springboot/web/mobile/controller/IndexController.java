@@ -4,6 +4,8 @@ import com.taotao.springboot.content.common.utils.JacksonUtils;
 import com.taotao.springboot.content.domain.pojo.TbContent;
 import com.taotao.springboot.content.export.ContentResource;
 import com.taotao.springboot.web.mobile.domain.vo.AD1Node;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,8 @@ import java.util.List;
 @Controller
 public class IndexController {
 
+    private static final Logger log = LoggerFactory.getLogger(IndexController.class);
+
     //@Reference
     @Autowired
     private ContentResource contentResource;
@@ -42,7 +46,9 @@ public class IndexController {
     @RequestMapping("/index")
     public String showIndex(Model model) {
         // 根据categoryId查询轮播图内容列表
+        log.info("根据类目ID查询轮播图内容列表, categoryId={}", String.valueOf(AD1_CATEGORY_ID));
         List<TbContent> contentList = contentResource.getContentByCid(AD1_CATEGORY_ID);
+        log.info("根据类目ID查询轮播图内容列表, res={}", JacksonUtils.objectToJson(contentList));
         // 把列表转换为Ad1Node列表
         List<AD1Node> ad1NodeList = new ArrayList<>();
         for (TbContent content : contentList) {
@@ -60,7 +66,7 @@ public class IndexController {
         }
         // 将列表转换为JSON数据
         String ad1Json = JacksonUtils.objectToJson(ad1NodeList);
-        // 把JSON数据传递给页面
+        log.info("轮播图内容显示列表, res={}", ad1Json);
         model.addAttribute("ad1", ad1Json);
         return "index";
     }
