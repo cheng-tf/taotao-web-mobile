@@ -17,7 +17,6 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
-//@MapperScan(basePackages = "com.taotao.springboot.content.mapper")
 @ComponentScan(basePackages = "com.taotao.springboot.web.mobile.*")
 @EnableDubboConfiguration                                           // 启动Dubbo配置
 public class SpringbootApplication extends SpringBootServletInitializer {
