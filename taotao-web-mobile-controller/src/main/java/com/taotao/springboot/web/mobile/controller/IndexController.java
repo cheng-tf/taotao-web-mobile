@@ -43,7 +43,7 @@ public class IndexController {
     @Value("${AD1_HEIGHT_B}")
     private Integer AD1_HEIGHT_B;
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String showIndex(Model model) {
         // 根据categoryId查询轮播图内容列表
         log.info("根据类目ID查询轮播图内容列表, categoryId={}", String.valueOf(AD1_CATEGORY_ID));
