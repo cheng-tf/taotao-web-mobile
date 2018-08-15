@@ -46,12 +46,15 @@ public class IndexController {
     @Value("${AD1_HEIGHT_B}")
     private Integer AD1_HEIGHT_B;
 
+    /**
+     * 首页轮播图-大广告位内容显示列表
+     */
     @RequestMapping("/")
     public String showIndex(Model model) {
         // #1 根据内容类目ID查询轮播图内容列表
-        log.info("根据类目ID查询轮播图内容列表, categoryId={}", String.valueOf(AD1_CATEGORY_ID));
+        log.info("首页轮播图-大广告位内容显示列表, categoryId={}", String.valueOf(AD1_CATEGORY_ID));
         List<TbContent> contentList = contentResource.getContentByCid(AD1_CATEGORY_ID);
-        log.info("根据类目ID查询轮播图内容列表, res={}", JacksonUtils.objectToJson(contentList));
+        log.info("首页轮播图-大广告位内容显示列表, res={}", JacksonUtils.objectToJson(contentList));
         // #2 将列表转换为AD1Node列表
         List<AD1Node> ad1NodeList = new ArrayList<>();
         for (TbContent content : contentList) {
@@ -68,7 +71,7 @@ public class IndexController {
         }
         // #3 转换为JSON数据
         String ad1Json = JacksonUtils.objectToJson(ad1NodeList);
-        log.info("轮播图内容显示列表, res={}", ad1Json);
+        log.info("首页轮播图-大广告位内容显示列表, res={}", ad1Json);
         model.addAttribute("ad1", ad1Json);
         return "index";
     }
