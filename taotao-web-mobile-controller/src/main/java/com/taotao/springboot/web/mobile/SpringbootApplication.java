@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * <p>Title: SpringbootApplication</p>
@@ -18,7 +19,8 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class, DruidDataSourceAutoConfigure.class})//取消Druid数据源自动配置
 @ComponentScan(basePackages = "com.taotao.springboot.web.mobile.*")
-//@EnableDubboConfiguration//启动Dubbo注解配置
+@ImportResource({"classpath:/dubbo.xml"})//开启Dubbo原生XML配置
+//@EnableDubboConfiguration//开启Dubbo注解配置
 public class SpringbootApplication extends SpringBootServletInitializer {
 
     @Override

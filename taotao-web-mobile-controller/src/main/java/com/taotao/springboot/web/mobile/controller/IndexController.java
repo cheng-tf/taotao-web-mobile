@@ -54,7 +54,6 @@ public class IndexController {
         // #1 根据内容类目ID查询轮播图内容列表
         log.info("首页轮播图-大广告位内容显示列表, categoryId={}", String.valueOf(AD1_CATEGORY_ID));
         List<TbContent> contentList = contentResource.getContentByCid(AD1_CATEGORY_ID);
-        log.info("首页轮播图-大广告位内容显示列表, res={}", JacksonUtils.objectToJson(contentList));
         // #2 将列表转换为AD1Node列表
         List<AD1Node> ad1NodeList = new ArrayList<>();
         for (TbContent content : contentList) {
