@@ -28,28 +28,31 @@ public class IndexController {
 
     private static final Logger log = LoggerFactory.getLogger(IndexController.class);
 
-    //@Reference
     @Autowired
     private ContentResource contentResource;
 
     @Value("${AD1_CATEGORY_ID}")
     private Long AD1_CATEGORY_ID;
+
     @Value("${AD1_WIDTH}")
     private Integer AD1_WIDTH;
+
     @Value("${AD1_WIDTH_B}")
     private Integer AD1_WIDTH_B;
+
     @Value("${AD1_HEIGHT}")
     private Integer AD1_HEIGHT;
+
     @Value("${AD1_HEIGHT_B}")
     private Integer AD1_HEIGHT_B;
 
     @RequestMapping("/")
     public String showIndex(Model model) {
-        // 根据categoryId查询轮播图内容列表
+        // #1 根据内容类目ID查询轮播图内容列表
         log.info("根据类目ID查询轮播图内容列表, categoryId={}", String.valueOf(AD1_CATEGORY_ID));
         List<TbContent> contentList = contentResource.getContentByCid(AD1_CATEGORY_ID);
         log.info("根据类目ID查询轮播图内容列表, res={}", JacksonUtils.objectToJson(contentList));
-        // 把列表转换为Ad1Node列表
+        // #2 将列表转换为AD1Node列表
         List<AD1Node> ad1NodeList = new ArrayList<>();
         for (TbContent content : contentList) {
             AD1Node node = new AD1Node();
@@ -61,10 +64,9 @@ public class IndexController {
             node.setSrc(content.getPic());
             node.setSrcB(content.getPic2());
             node.setHref(content.getUrl());
-            // 添加到节点列表
             ad1NodeList.add(node);
         }
-        // 将列表转换为JSON数据
+        // #3 转换为JSON数据
         String ad1Json = JacksonUtils.objectToJson(ad1NodeList);
         log.info("轮播图内容显示列表, res={}", ad1Json);
         model.addAttribute("ad1", ad1Json);
