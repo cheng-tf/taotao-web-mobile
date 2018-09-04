@@ -1,13 +1,18 @@
 package com.taotao.springboot.web.mobile.domain.vo;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * <p>Title: AD1Node</p>
- * <p>Description: </p>
+ * <p>Description: 广告位VO类 基于Lombok注解，省略Get/Set方法 </p>
  * <p>Company: bupt.edu.cn</p>
  * <p>Created: 2018-05-06 13:11</p>
  * @author ChengTengfei
  * @version 1.0
  */
+@Getter
+@Setter
 public class AD1Node {
 
     private String srcB;
@@ -25,57 +30,5 @@ public class AD1Node {
     private String href;
 
     private Integer heightB;
-
-    public AD1Node() {
-    }
-
-    public String getSrcB() {
-        return srcB;
-    }
-    public void setSrcB(String srcB) {
-        this.srcB = srcB;
-    }
-    public Integer getHeight() {
-        return height;
-    }
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-    public String getAlt() {
-        return alt;
-    }
-    public void setAlt(String alt) {
-        this.alt = alt;
-    }
-    public Integer getWidth() {
-        return width;
-    }
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
-    public String getSrc() {
-        return src;
-    }
-    public void setSrc(String src) {
-        this.src = src;
-    }
-    public Integer getWidthB() {
-        return widthB;
-    }
-    public void setWidthB(Integer widthB) {
-        this.widthB = widthB;
-    }
-    public String getHref() {
-        return href;
-    }
-    public void setHref(String href) {
-        this.href = href;
-    }
-    public Integer getHeightB() {
-        return heightB;
-    }
-    public void setHeightB(Integer heightB) {
-        this.heightB = heightB;
-    }
 
 }
