@@ -17,10 +17,10 @@ import org.springframework.context.annotation.ImportResource;
  * @author ChengTengfei
  * @version 1.0
  */
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, DruidDataSourceAutoConfigure.class})//取消Druid数据源自动配置
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, DruidDataSourceAutoConfigure.class}) //取消Druid数据源自动配置
 @ComponentScan(basePackages = "com.taotao.springboot.web.mobile.*")
-@ImportResource({"classpath:/dubbo.xml"})//开启Dubbo原生XML配置
-//@EnableDubboConfiguration//开启Dubbo注解配置
+@ImportResource({"classpath:/dubbo.xml"})                               // 开启Dubbo原生XML配置
+//@EnableDubboConfiguration                                             // 开启Dubbo注解配置
 public class SpringbootApplication extends SpringBootServletInitializer {
 
     @Override
