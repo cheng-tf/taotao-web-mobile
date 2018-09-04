@@ -8,7 +8,7 @@
 	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<!-- 服务消费者 -->
-	<!-- 应用信息：计算接口关系 -->
+	<!-- 应用信息 -->
 	<dubbo:application name="taotao-web-mobile"/>
 
 	<!-- 注册中心 -->
