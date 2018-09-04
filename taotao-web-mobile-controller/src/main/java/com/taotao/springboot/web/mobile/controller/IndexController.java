@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * <p>Title: IndexController</p>
- * <p>Description: 首页展示Controller</p>
+ * <p>Description: 首页Controller</p>
  * <p>Company: bupt.edu.cn</p>
  * <p>Created: 2018-05-06 13:08</p>
  * @author ChengTengfei
